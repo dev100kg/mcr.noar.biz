@@ -13,8 +13,8 @@ site:
     # creator: "@youraccount" # 任意
 
 hero:
-  headline: 'システム開発を通じ、社会を豊かにする、そんな会社です'
-  subcopy: '国や地方自治体や金融機関など、大規模なシステム開発を得意とする会社です。'
+  headline: 'Empower IT solutions for a　sustainable society!'
+  subcopy: '国や地方自治体や金融機関など、大規模なシステム開発を通じて、社会をゆたかにします。'
   badge: '中途採用'
   features:
     - 名古屋証券取引所ネクスト市場上場
