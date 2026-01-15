@@ -29,8 +29,8 @@ const twSite = settings.site.twitter?.site;
 const twCreator = settings.site.twitter?.creator;
 
 const hero = settings.hero;
-const logoSrc = settings.brand?.logo?.src;
-const logoAlt = settings.brand?.logo?.alt ?? settings.brand?.companyName ?? 'Logo';
+//const logoSrc = settings.brand?.logo?.src;
+//const logoAlt = settings.brand?.logo?.alt ?? settings.brand?.companyName ?? 'Logo';
 
 // 任意：settings.hero.features があれば、信頼バッジとして表示
 const heroFeatures: string[] = hero?.features ?? [];
@@ -93,7 +93,7 @@ const heroFeatures: string[] = hero?.features ?? [];
 
         <div class="relative">
           <div class="flex items-center justify-between gap-4">
-            {logoSrc && <img src={logoSrc} alt={logoAlt} class="h-10 w-auto" />}
+            <img src="/logo.svg" class="h-10 w-auto" />
 
             {
               hero.badge && (
