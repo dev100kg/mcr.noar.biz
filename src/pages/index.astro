@@ -1,0 +1,148 @@
+---
+import '../styles/global.css';
+import LinkSection from '../components/LinkSection.astro';
+import { getCollection } from 'astro:content';
+
+const links = await getCollection('links');
+const jobboards = links.find((x) => x.slug === 'jobboards');
+const wantedly = links.find((x) => x.slug === 'wantedly');
+
+if (!jobboards || !wantedly) {
+  throw new Error('必要なリンクコンテンツが見つかりません');
+}
+
+const settingsCol = await getCollection('settings');
+const settings = settingsCol[0]?.data;
+if (!settings) {
+  throw new Error('設定ファイルが見つかりません');
+}
+
+const pageTitle = settings.site.title;
+const pageDesc = settings.site.description;
+
+const ogTitle = settings.site.og?.title ?? pageTitle;
+const ogDesc = settings.site.og?.description ?? pageDesc;
+const ogImage = settings.site.og?.image;
+
+const twCard = settings.site.twitter?.card ?? 'summary';
+const twSite = settings.site.twitter?.site;
+const twCreator = settings.site.twitter?.creator;
+
+const hero = settings.hero;
+const logoSrc = settings.brand?.logo?.src;
+const logoAlt = settings.brand?.logo?.alt ?? settings.brand?.companyName ?? 'Logo';
+
+// 任意：settings.hero.features があれば、信頼バッジとして表示
+const heroFeatures: string[] = hero?.features ?? [];
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{pageTitle}</title>
+
+    <meta name="description" content={pageDesc} />
+
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDesc} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta name="twitter:card" content={twCard} />
+    {twSite && <meta name="twitter:site" content={twSite} />}
+    {twCreator && <meta name="twitter:creator" content={twCreator} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <!-- 背景 -->
+      <div class="pointer-events-none fixed inset-0 -z-10">
+        <div
+          class="absolute -left-[200px] -top-[200px] h-[520px] w-[520px] rounded-full bg-sky-300/20 blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute -right-[220px] top-20 h-[520px] w-[520px] rounded-full bg-emerald-300/20 blur-3xl"
+        >
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <header
+        class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/55 p-6 backdrop-blur sm:p-10"
+      >
+        <!-- 追加の薄い演出 -->
+        <div class="pointer-events-none absolute inset-0">
+          <div
+            class="absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-sky-200/35 blur-3xl"
+          >
+          </div>
+          <div class="absolute top-8 right-8 h-72 w-72 rounded-full bg-emerald-200/25 blur-3xl">
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="flex items-center justify-between gap-4">
+            {logoSrc && <img src={logoSrc} alt={logoAlt} class="h-10 w-auto" />}
+
+            {
+              hero.badge && (
+                <span class="shrink-0 rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-100">
+                  {hero.badge}
+                </span>
+              )
+            }
+          </div>
+
+          <h1 class="mt-6 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+            <span
+              class="bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent"
+            >
+              {hero.headline}
+            </span>
+          </h1>
+
+          {
+            hero.subcopy && (
+              <p class="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
+                {hero.subcopy}
+              </p>
+            )
+          }
+
+          {
+            heroFeatures.length > 0 && (
+              <div class="mt-6 flex flex-wrap gap-2">
+                {heroFeatures.map((t) => (
+                  <span class="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )
+          }
+        </div>
+      </header>
+
+      <!-- Sections -->
+      <div class="mt-8 space-y-8">
+        <section id="jobboards" class="scroll-mt-24">
+          <LinkSection {...jobboards.data} />
+        </section>
+
+        <section id="wantedly" class="scroll-mt-24">
+          <LinkSection {...wantedly.data} />
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
