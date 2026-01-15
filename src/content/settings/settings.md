@@ -13,7 +13,7 @@ site:
     # creator: "@youraccount" # 任意
 
 hero:
-  headline: 'Empower IT solutions for a　sustainable society!'
+  headline: 'Empower IT solutions for a sustainable society!'
   subcopy: '国や地方自治体や金融機関など、大規模なシステム開発を通じて、社会をゆたかにします。'
   badge: '中途採用'
   features:
