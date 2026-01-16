@@ -19,9 +19,10 @@ items:
     tags:
       - '未経験可'
 
- - label: 'Indeed'
+  - label: 'Indeed'
     url: 'https://example.com/indeed'
     note: '◯◯な業務に関わるチャンス！'
     tags:
       - '関西'
+
 ---
