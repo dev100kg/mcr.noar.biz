@@ -24,5 +24,6 @@ items:
     note: '◯◯な業務に関わるチャンス！'
     tags:
       - '関西'
+    enabled: false
 
 ---
