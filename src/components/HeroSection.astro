@@ -36,27 +36,31 @@ const headlineLines = hero.headline.split('\n');
       </a>
     </div>
 
-    <h1 class="hero-display mt-5 text-[clamp(1.2rem,5.2vw,2.2rem)] font-medium leading-snug tracking-tight text-slate-900 sm:mt-6 sm:text-[clamp(1.4rem,3.1cqw,2.9rem)]">
-      {headlineLines.map((line, index) => (
-        <span
-          class={`block ${
-            index === 0
-              ? 'bg-gradient-to-r from-emerald-600 via-emerald-500 to-sky-500 bg-clip-text text-transparent font-semibold'
-              : 'mt-1 text-[0.78em] leading-snug text-slate-600 sm:text-[0.72em] sm:leading-tight'
-          }`}
-        >
-          {line}
-        </span>
-      ))}
+    <h1
+      class="hero-display mt-5 text-[clamp(1.2rem,5.2vw,2.2rem)] font-medium leading-snug tracking-tight text-slate-900 sm:mt-6 sm:text-[clamp(1.4rem,3.1cqw,2.9rem)]"
+    >
+      {
+        headlineLines.map((line, index) => (
+          <span
+            class={`block ${
+              index === 0
+                ? 'bg-gradient-to-r from-emerald-600 via-emerald-500 to-sky-500 bg-clip-text text-transparent font-semibold'
+                : 'mt-1 text-[0.78em] leading-snug text-slate-600 sm:text-[0.72em] sm:leading-tight'
+            }`}
+          >
+            {line}
+          </span>
+        ))
+      }
     </h1>
 
     {
       hero.subcopy && (
-      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-700 sm:text-lg sm:leading-loose">
-        {hero.subcopy}
-      </p>
-    )
-  }
+        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-900 sm:text-lg sm:leading-loose">
+          {hero.subcopy}
+        </p>
+      )
+    }
 
     {
       features.length > 0 && (
