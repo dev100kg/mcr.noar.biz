@@ -9,4 +9,12 @@ items:
       - 'リモート可'
       - '経験者'
     enabled: false # enabledがfalseの場合、掲載終了として扱う
+  - label: 'Doda（エージェントサービス）'
+    url: 'https://doda.jp/DodaFront/View/JobSearchDetail/j_jid__3013976685/'
+    note: '【九段下】公共・金融系システムエンジニア/NTTデータGと強固な関係◆上流中心◆在宅可・残業月15ｈ'
+    tags:
+      - '経験者'
+      - '上流工程'
+      - 'テレワーク可'
+    enabled: false # enabledがfalseの場合、掲載終了として扱う
 ---
