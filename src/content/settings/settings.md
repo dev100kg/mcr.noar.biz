@@ -1,12 +1,11 @@
 ---
 site:
   title: '中途採用情報｜株式会社日本オーエー研究所'
-  description: '株式会社日本オーエー研究所の中途採用に関する求人リンクや、社内の雰囲気がわかるWantedly記事をまとめています。'
+  description: '株式会社日本オーエー研究所の中途採用に関する求人リンクや、社内の雰囲気がわかるWantedly記事をまとめています。官公庁・金融系のSE/PG（東京・大阪・テレワーク可）'
   og:
     title: '中途採用情報｜株式会社日本オーエー研究所'
-    description: '株式会社日本オーエー研究所の中途採用に関する求人リンクや、社内の雰囲気がわかるWantedly記事をまとめています。'
-    # 画像を使うなら（public/og.png など）
-    # image: "/og.png"
+    description: '株式会社日本オーエー研究所の中途採用に関する求人リンクや、社内の雰囲気がわかるWantedly記事をまとめています。官公庁・金融系のSE/PG（東京・大阪・テレワーク可）'
+    image: '/og.png'
   twitter:
     card: 'summary_large_image'
     # site: "@youraccount"   # 任意
