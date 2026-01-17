@@ -61,6 +61,10 @@ const currentYear = new Date().getFullYear();
       href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="min-h-screen bg-slate-50 text-slate-900">
@@ -72,11 +76,11 @@ const currentYear = new Date().getFullYear();
       <!-- Sections -->
       <div class="mt-8 space-y-8">
         <section id="jobboards" class="scroll-mt-24">
-          <LinkSection {...jobboards.data} />
+          <LinkSection {...jobboards.data} variant="highlight" />
         </section>
 
         <section id="wantedly" class="scroll-mt-24">
-          <LinkSection {...wantedly.data} />
+          <LinkSection {...wantedly.data} variant="muted" />
         </section>
       </div>
     </main>
@@ -89,10 +93,25 @@ const currentYear = new Date().getFullYear();
           © {currentYear}
           <a href="https://noar.co.jp" target="_blank">{companyName}</a>
         </div>
-        <nav class="flex flex-wrap items-center gap-4">
-          <a class="transition hover:text-sky-600" href="#jobboards">求人情報</a>
-          <a class="transition hover:text-sky-600" href="#wantedly">Wantedly</a>
-          <a class="transition hover:text-sky-600" href="#">トップへ</a>
+        <nav class="flex flex-wrap items-center gap-4 text-base text-slate-700">
+          <a
+            class="rounded-full px-4 py-2 text-base font-medium tracking-wide text-slate-600 transition-colors hover:text-sky-600 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            href="#jobboards"
+          >
+            求人情報
+          </a>
+          <a
+            class="rounded-full px-4 py-2 text-base font-medium tracking-wide text-slate-600 transition-colors hover:text-sky-600 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            href="#wantedly"
+          >
+            Wantedly
+          </a>
+          <a
+            class="rounded-full px-4 py-2 text-base font-medium tracking-wide text-slate-600 transition-colors hover:text-sky-600 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            href="#"
+          >
+            トップへ
+          </a>
         </nav>
       </div>
     </footer>
