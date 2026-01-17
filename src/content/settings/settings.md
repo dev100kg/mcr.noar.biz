@@ -13,8 +13,10 @@ site:
     # creator: "@youraccount" # 任意
 
 hero:
-  headline: 'Empower IT solutions for a sustainable society!'
-  subcopy: '株式会社日本オーエー研究所の中途採用向けの求人リンクとWantedly記事をまとめています。'
+  headline: |-
+    ITで社会を支えながら人も育てる。
+    官公庁・金融分野を中心に、未経験からでもエンジニアとして長く働ける環境があります。
+  subcopy: '株式会社日本オーエー研究所の中途採用に関する求人リンクや、社内の雰囲気がわかるWantedly記事をまとめています。'
   features:
     - 名古屋証券取引所ネクスト市場上場
     - テレワーク実施率率◯◯%(2025年)
