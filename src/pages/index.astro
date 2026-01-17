@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+import HeroSection from '../components/HeroSection.astro';
+import LinkSection from '../components/LinkSection.astro';
+import PageBackground from '../components/PageBackground.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+const links = await getCollection('links');
+const jobboards = links.find((x) => x.slug === 'jobboards');
+const wantedly = links.find((x) => x.slug === 'wantedly');
+
+if (!jobboards || !wantedly) {
+  throw new Error('必要なリンクコンテンツが見つかりません');
+}
+
+const settingsEntry = await getEntry('settings', 'settings');
+const settings = settingsEntry?.data;
+if (!settings) {
+  throw new Error('設定ファイルが見つかりません');
+}
+
+const pageTitle = settings.site.title;
+const pageDesc = settings.site.description;
+
+const ogTitle = settings.site.og?.title ?? pageTitle;
+const ogDesc = settings.site.og?.description ?? pageDesc;
+const ogImage = settings.site.og?.image;
+
+const twCard = settings.site.twitter?.card ?? 'summary';
+const twSite = settings.site.twitter?.site;
+const twCreator = settings.site.twitter?.creator;
+
+const hero = settings.hero;
+const heroFeatures: string[] = hero?.features ?? [];
+const companyName = settings.brand?.companyName ?? pageTitle;
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{pageTitle}</title>
+
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+    <meta name="description" content={pageDesc} />
+
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDesc} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta name="twitter:card" content={twCard} />
+    {twSite && <meta name="twitter:site" content={twSite} />}
+    {twCreator && <meta name="twitter:creator" content={twCreator} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Murecho:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <PageBackground />
+
+      <HeroSection hero={hero} features={heroFeatures} />
+
+      <!-- Sections -->
+      <div class="mt-8 space-y-8">
+        <section id="jobboards" class="scroll-mt-24">
+          <LinkSection {...jobboards.data} variant="highlight" />
+        </section>
+
+        <section id="wantedly" class="scroll-mt-24">
+          <LinkSection {...wantedly.data} variant="muted" />
+        </section>
+      </div>
+    </main>
+
+    <footer class="border-t border-slate-200/80 bg-white/70 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="font-medium text-slate-700">
+          © {currentYear}
+          <a href="https://noar.co.jp" target="_blank" rel="noopener noreferrer">{companyName}</a>
+        </div>
+        <nav class="flex flex-wrap items-center gap-4 text-base text-slate-700">
+          <a
+            class="rounded-full px-4 py-2 text-base font-medium tracking-wide text-slate-600 transition-colors hover:text-sky-600 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            href="#jobboards"
+          >
+            求人情報
+          </a>
+          <a
+            class="rounded-full px-4 py-2 text-base font-medium tracking-wide text-slate-600 transition-colors hover:text-sky-600 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            href="#wantedly"
+          >
+            Wantedly
+          </a>
+          <a
+            class="rounded-full px-4 py-2 text-base font-medium tracking-wide text-slate-600 transition-colors hover:text-sky-600 hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            href="#"
+          >
+            トップへ
+          </a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

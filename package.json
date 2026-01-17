@@ -1,0 +1,36 @@
+{
+  "name": "recruit-lp",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "astro check",
+    "format:check:md": "prettier \"src/content/**/*.md\" --check",
+    "format:md": "prettier \"src/content/**/*.md\" --write"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.9",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/parser": "^8.53.0",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.8.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.3"
+  }
+}
