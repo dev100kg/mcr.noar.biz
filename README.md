@@ -30,8 +30,7 @@
 ## 1. Issueを作る（誰でも）
 
 - GitHubの **Issues** → **New issue** （青いボタン）
-- 求人・コンテンツ更新を選択
-  <img width="1005" height="262" alt="image" src="https://github.com/user-attachments/assets/8a5e86f6-1b69-45ac-b5d1-a81a2458f914" />
+- 「求人・コンテンツ更新」を選択
 - **Add a title**：例　[サイト更新] マイナビ転職のリンクを追加
 - **種別**：「求人情報追加」「Wantedly記事追加」など作業内容を選択
 - **変更内容**：例　未経験者の求人を追加　`https://～～～`
