@@ -75,7 +75,9 @@
 
 - **Pull requests** → **New pull request**
 - base: `main`
+- compareの方には作成したbranchを選択
 - PRテンプレに沿って記入し、作成
+<img width="1138" height="262" alt="image" src="https://github.com/user-attachments/assets/df470f1d-d668-4077-b052-b02574ecc53b" />
 
 ---
 
