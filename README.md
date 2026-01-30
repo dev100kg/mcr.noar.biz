@@ -42,6 +42,9 @@
 
 - Issue画面右側の Development →  **Create a branch**（リンク）
 - 何も編集せず**create branch**（青いボタン）
+- Developmentに作成したbranchが表示されるので、押下して遷移
+  <img width="1019" height="306" alt="image" src="https://github.com/user-attachments/assets/8f50810a-1487-4241-84d1-71c8291edef8" />
+
 
 ---
 
@@ -63,6 +66,7 @@
 - 先頭の `---`（frontmatter）を消さない
 - `title:` や `url:` の `:` の後は半角スペース
 - URLは `https://` から書く
+- 編集が終了したら、右上（緑色）の `Commint changes...` を押下
 - わからなかったら相談！
 
 ---
