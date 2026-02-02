@@ -26,7 +26,7 @@ items:
       - '社会貢献性の高いお仕事'
       - '未経験者'
     enabled: true
-- label: 'Indeed'
+　- label: 'Indeed'
     url: 'https://jp.indeed.com/viewjob?jk=d2f3c24194e58fd2'
     note: '【テレワーク中心】業務改善DXエンジニア'
     tags:
