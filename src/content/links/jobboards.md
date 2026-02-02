@@ -18,4 +18,20 @@ items:
       - '上流工程'
       - 'テレワーク可'
     enabled: true
+  - label: 'Indeed'
+    url: 'https://jp.indeed.com/viewjob?jk=ddf181c2f1a2543a'
+    note: '【未経験可】ITエンジニア'
+    tags:
+      - '3ヶ月研修'
+      - '社会貢献性の高いお仕事'
+      - '未経験者'
+    enabled: true
+  - label: 'Indeed'
+    url: 'https://jp.indeed.com/viewjob?jk=d2f3c24194e58fd2'
+    note: '【テレワーク中心】業務改善DXエンジニア'
+    tags:
+      - '経験者'
+      - '上流工程'
+      - 'テレワーク可'
+    enabled: true
 ---
