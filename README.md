@@ -9,7 +9,7 @@
 
 ## 更新の流れ
 
-```
+```text
 【誰でも】Issue作成
  ↓
 【作業担当者】Issueからブランチ作成
@@ -43,8 +43,8 @@
 - Issue画面右側の Development →  **Create a branch**（リンク）
 - 何も編集せず**create branch**（青いボタン）
 - Developmentに作成したbranchが表示されるので、押下して遷移
-  <img width="1019" height="306" alt="image" src="https://github.com/user-attachments/assets/8f50810a-1487-4241-84d1-71c8291edef8" />
 
+![image](https://github.com/user-attachments/assets/8f50810a-1487-4241-84d1-71c8291edef8)
 
 ---
 
@@ -77,7 +77,8 @@
 - base: `main`
 - compareの方には作成したbranchを選択
 - PRテンプレに沿って記入し、作成
-<img width="1138" height="262" alt="image" src="https://github.com/user-attachments/assets/df470f1d-d668-4077-b052-b02574ecc53b" />
+
+![image](https://github.com/user-attachments/assets/df470f1d-d668-4077-b052-b02574ecc53b)
 
 ---
 
