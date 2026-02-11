@@ -1,9 +1,20 @@
 import { defineCollection, z } from 'astro:content';
 
+const isHttpsUrl = (value: string): boolean => {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+};
+
 // LinkItemスキーマを別途定義して再利用可能にする
 export const linkItemSchema = z.object({
   label: z.string(),
-  url: z.string().url(),
+  url: z.string().url().refine(isHttpsUrl, {
+    message: 'url は https のみ指定できます。',
+  }),
   note: z.string().optional(),
   enabled: z.boolean().default(true),
   tags: z.array(z.string()).optional(),
