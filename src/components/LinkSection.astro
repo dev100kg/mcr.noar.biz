@@ -32,41 +32,43 @@ const isMuted = sectionVariant === 'muted';
 const countBadgeClass = [
   'shrink-0 rounded-full px-3 py-1 text-xs font-semibold ring-1 flex items-center gap-2 tabular-nums',
   isHighlight
-    ? 'bg-emerald-100/80 text-emerald-800 ring-emerald-200'
+    ? 'bg-[#5eb02f]/12 text-[#4a8d25] ring-[#5eb02f]/22'
     : isMuted
-      ? 'bg-slate-100 text-slate-500 ring-slate-200'
-      : 'bg-emerald-50 text-emerald-700 ring-emerald-200',
+      ? 'bg-stone-100/90 text-stone-600 ring-stone-200'
+      : 'bg-[#94a3b8]/16 text-[#64748b] ring-[#94a3b8]/24',
 ].join(' ');
 
 const cardBaseClass = [
-  'group block rounded-xl border bg-white/85 p-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300',
+  'group block rounded-2xl border bg-white/76 p-4 transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5eb02f]/55',
   isHighlight
-    ? 'border-emerald-200/80 bg-white shadow-[0_12px_28px_rgba(16,185,129,0.12)] hover:border-emerald-300 hover:bg-emerald-50/70 hover:shadow-[0_16px_34px_rgba(16,185,129,0.16)]'
+    ? 'border-[#5eb02f]/18 shadow-[0_10px_24px_rgba(94,176,47,0.08)] hover:-translate-y-0.5 hover:border-[#5eb02f]/30 hover:bg-white/90 hover:shadow-[0_14px_28px_rgba(94,176,47,0.12)]'
     : isMuted
-      ? 'border-slate-100 bg-slate-50/70 hover:border-slate-300 hover:bg-white/80 hover:shadow-sm'
-      : 'border-slate-100 hover:border-emerald-300 hover:bg-emerald-50/60 hover:shadow-sm',
+      ? 'border-stone-200/85 bg-white/64 hover:-translate-y-0.5 hover:border-stone-300 hover:bg-white/88 hover:shadow-[0_10px_22px_rgba(41,37,36,0.08)]'
+      : 'border-[#94a3b8]/26 hover:-translate-y-0.5 hover:border-[#94a3b8]/42 hover:bg-white/86 hover:shadow-[0_10px_24px_rgba(148,163,184,0.18)]',
 ].join(' ');
 
 const labelClass =
-  'truncate font-semibold text-slate-900 transition-colors group-hover:text-emerald-700 group-hover:underline group-hover:underline-offset-4';
-const metaTextClass = isHighlight ? 'text-slate-500' : 'text-slate-400';
-const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-emerald-600';
+  'truncate font-semibold text-stone-900 transition-colors group-hover:text-[#4a8d25] group-hover:underline group-hover:underline-offset-4';
+const metaTextClass = 'text-stone-500';
+const arrowClass =
+  'mt-0.5 text-base text-stone-500 transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#4a8d25]';
 ---
 
 <section
-  class={`rounded-2xl border p-5 sm:p-6 shadow-[0_20px_40px_rgba(15,23,42,0.08)] backdrop-blur ${
+  class={`section-panel section-rise p-5 sm:p-6 ${
     sectionVariant === 'highlight'
-      ? 'border-emerald-200/70 bg-emerald-50/40 shadow-[0_18px_32px_rgba(16,185,129,0.12)]'
+      ? 'bg-[#f8fafc]/74'
       : isMuted
-        ? 'border-slate-200 bg-slate-50/80'
-        : 'border-slate-200 bg-white/80'
+        ? 'bg-[#f8fafc]/70'
+        : 'bg-white/74'
   }`}
 >
-  <!-- Section header -->
   <header class="mb-5 flex items-start justify-between gap-4">
     <div>
-      <h2 class="text-lg font-semibold text-slate-900">{title}</h2>
-      {description && <p class="mt-1 text-sm text-slate-600">{description}</p>}
+      <h2 class="hero-display text-[1.05rem] font-semibold tracking-[0.01em] text-stone-900 sm:text-xl">
+        {title}
+      </h2>
+      {description && <p class="mt-1.5 text-sm leading-relaxed text-stone-600">{description}</p>}
     </div>
 
     <span class={countBadgeClass}>
@@ -77,11 +79,11 @@ const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-
 
   {
     visibleItems.length === 0 ? (
-      <div class="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-600">
+      <div class="rounded-xl border border-stone-200 bg-white/82 p-4 text-sm text-stone-600">
         現在、募集中の求人はありません。
       </div>
     ) : (
-      <ul class="flex flex-col gap-3">
+      <ul class="flex flex-col gap-3.5">
         {visibleItems.map((it) => (
           <li>
             <a
@@ -95,20 +97,13 @@ const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-
                 <div class="min-w-0">
                   <div class={labelClass}>{it.label}</div>
 
-                  {it.note && <div class="mt-1 text-sm text-slate-600">{it.note}</div>}
+                  {it.note && <div class="mt-1 text-sm text-stone-600">{it.note}</div>}
 
                   {it.tags && it.tags.length > 0 && (
                     <div class="mt-2 flex flex-wrap gap-2">
                       {it.tags.map((tag) => (
                         <span
-                          class="inline-flex items-center rounded-full
-               border border-emerald-200
-               bg-emerald-50
-               px-2.5 py-0.5
-               text-xs font-medium text-emerald-800
-               transition
-               group-hover:border-emerald-300
-               group-hover:bg-emerald-100"
+                          class="inline-flex items-center rounded-full border border-[#5eb02f]/24 bg-[#5eb02f]/10 px-2.5 py-0.5 text-xs font-medium text-[#4a8d25] transition group-hover:border-[#5eb02f]/36 group-hover:bg-[#5eb02f]/16"
                         >
                           {tag}
                         </span>

@@ -1,6 +1,36 @@
 @import 'tailwindcss';
 
+:root {
+  --bg-base: #f3f6f8;
+  --bg-warm: rgba(148, 163, 184, 0.08);
+  --bg-cool: rgba(94, 176, 47, 0.11);
+  --ink-strong: #1f2a27;
+  --ink-soft: #5a625d;
+  --line-soft: rgba(31, 42, 39, 0.09);
+  --surface-glass: rgba(248, 250, 252, 0.68);
+  --surface-elevated: rgba(255, 255, 255, 0.85);
+  --accent: #5eb02f;
+  --accent-strong: #4a8d25;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.05);
+  --shadow-lift: 0 18px 38px rgba(15, 23, 42, 0.085);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink-strong);
+  background:
+    radial-gradient(44rem 44rem at 8% -8%, var(--bg-cool), transparent 72%),
+    radial-gradient(42rem 42rem at 92% 0%, var(--bg-warm), transparent 72%),
+    linear-gradient(160deg, #f8fbfd 0%, var(--bg-base) 100%);
   font-family:
     "Zen Kaku Gothic New",
     -apple-system,
@@ -10,6 +40,19 @@ body {
     "Hiragino Kaku Gothic ProN",
     "Noto Sans JP",
     sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(31, 42, 39, 0.016) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31, 42, 39, 0.013) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
+  z-index: -5;
 }
 
 .hero-display {
@@ -23,4 +66,66 @@ body {
     "Hiragino Kaku Gothic ProN",
     "Noto Sans JP",
     sans-serif;
+}
+
+.page-fade-in {
+  animation: page-fade-in 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.section-rise {
+  animation: section-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.glass-panel {
+  background: var(--surface-glass);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
+}
+
+.section-panel {
+  background: var(--surface-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.site-link {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.site-link:hover {
+  color: #4a8d25;
+  background-color: rgba(94, 176, 47, 0.12);
+}
+
+.site-link:focus-visible {
+  outline: 2px solid rgba(94, 176, 47, 0.35);
+  outline-offset: 2px;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
