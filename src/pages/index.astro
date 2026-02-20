@@ -103,10 +103,12 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
       <HeroSection hero={hero} features={heroFeatures} />
 
       <!-- Sections -->
-      <div class="mt-8 space-y-8 sm:mt-10 sm:space-y-9">
+      <div class="mt-8 sm:mt-10">
         <section id="jobboards" class="scroll-mt-24">
           <LinkSection {...jobboards.data} variant="highlight" />
         </section>
+
+        <div class="section-divider my-6 sm:my-7" aria-hidden="true"></div>
 
         <section id="wantedly" class="scroll-mt-24">
           <LinkSection {...wantedly.data} variant="muted" />
@@ -114,29 +116,36 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
       </div>
     </main>
 
-    <footer class="border-t border-[#d8e1ea]/62 bg-[#f8fafc]/70 backdrop-blur-xl">
+    <footer class="border-t border-brand-dark/35 bg-brand">
       <div
-        class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-stone-600 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+        class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
-        <div class="font-medium text-stone-800">
+        <div class="font-medium text-white">
           © {currentYear}
-          <a href="https://noar.co.jp" target="_blank" rel="noopener noreferrer nofollow">{companyName}</a>
-        </div>
-        <nav class="flex flex-wrap items-center gap-3 text-base text-stone-900">
           <a
-            class="site-link rounded-full px-4 py-2 text-base font-medium tracking-wide text-stone-700"
+            href="https://noar.co.jp"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="ml-1 underline-offset-4 transition hover:underline focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75"
+          >
+            {companyName}
+          </a>
+        </div>
+        <nav class="flex flex-wrap items-center gap-3 text-base text-white">
+          <a
+            class="site-link rounded-full px-4 py-2 text-sm font-medium tracking-wide sm:text-base"
             href="#jobboards"
           >
             求人情報
           </a>
           <a
-            class="site-link rounded-full px-4 py-2 text-base font-medium tracking-wide text-stone-700"
+            class="site-link rounded-full px-4 py-2 text-sm font-medium tracking-wide sm:text-base"
             href="#wantedly"
           >
             Wantedly
           </a>
           <a
-            class="site-link rounded-full px-4 py-2 text-base font-medium tracking-wide text-stone-700"
+            class="site-link rounded-full px-4 py-2 text-sm font-medium tracking-wide sm:text-base"
             href="#"
           >
             トップへ

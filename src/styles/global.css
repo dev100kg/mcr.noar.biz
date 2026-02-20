@@ -1,16 +1,27 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-brand: #1e7f4f;
+  --color-brand-dark: #16643d;
+  --color-brand-soft: #d7ece1;
+  --color-bg-soft: #f7faf8;
+}
+
 :root {
-  --bg-base: #f3f6f8;
-  --bg-warm: rgba(148, 163, 184, 0.08);
-  --bg-cool: rgba(94, 176, 47, 0.11);
+  --bg-base: #edf5f1;
+  --bg-warm: rgba(22, 100, 61, 0.07);
+  --bg-cool: rgba(30, 127, 79, 0.13);
   --ink-strong: #1f2a27;
   --ink-soft: #5a625d;
-  --line-soft: rgba(31, 42, 39, 0.09);
-  --surface-glass: rgba(248, 250, 252, 0.68);
-  --surface-elevated: rgba(255, 255, 255, 0.85);
-  --accent: #5eb02f;
-  --accent-strong: #4a8d25;
+  --line-soft: rgba(22, 100, 61, 0.14);
+  --surface-glass: rgba(247, 250, 248, 0.78);
+  --surface-elevated: rgba(255, 255, 255, 0.88);
+  --accent: #1e7f4f;
+  --accent-strong: #16643d;
+  --brand: #1e7f4f;
+  --brand-dark: #16643d;
+  --brand-soft: #d7ece1;
+  --bg-soft: #f7faf8;
   --radius-lg: 1.25rem;
   --radius-xl: 1.75rem;
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.05);
@@ -30,7 +41,7 @@ body {
   background:
     radial-gradient(44rem 44rem at 8% -8%, var(--bg-cool), transparent 72%),
     radial-gradient(42rem 42rem at 92% 0%, var(--bg-warm), transparent 72%),
-    linear-gradient(160deg, #f8fbfd 0%, var(--bg-base) 100%);
+    linear-gradient(160deg, #f9fcfa 0%, var(--bg-base) 100%);
   font-family:
     "Zen Kaku Gothic New",
     -apple-system,
@@ -48,8 +59,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(31, 42, 39, 0.016) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(31, 42, 39, 0.013) 1px, transparent 1px);
+    linear-gradient(to right, rgba(22, 100, 61, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 100, 61, 0.014) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
   z-index: -5;
@@ -93,19 +104,33 @@ body::before {
 }
 
 .site-link {
+  color: rgba(255, 255, 255, 0.94);
   transition:
     color 180ms ease,
     background-color 180ms ease;
 }
 
 .site-link:hover {
-  color: #4a8d25;
-  background-color: rgba(94, 176, 47, 0.12);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .site-link:focus-visible {
-  outline: 2px solid rgba(94, 176, 47, 0.35);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.18);
+  outline: 2px solid rgba(255, 255, 255, 0.72);
   outline-offset: 2px;
+}
+
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(22, 100, 61, 0) 0%,
+    rgba(22, 100, 61, 0.22) 50%,
+    rgba(22, 100, 61, 0) 100%
+  );
 }
 
 @keyframes page-fade-in {
