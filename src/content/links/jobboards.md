@@ -19,7 +19,7 @@ items:
       - 'テレワーク可'
     enabled: true
   - label: 'Indeed'
-    url: 'https://jp.indeed.com/viewjob?jk=ddf181c2f1a2543a'
+    url: 'https://jp.indeed.com/viewjob?jk=2f2e3af3f76574f8'
     note: '【未経験可】ITエンジニア'
     tags:
       - '3ヶ月研修'
@@ -27,7 +27,7 @@ items:
       - '未経験者'
     enabled: true
   - label: 'Indeed'
-    url: 'https://jp.indeed.com/viewjob?jk=d2f3c24194e58fd2'
+    url: 'https://jp.indeed.com/viewjob?jk=e6b2ed4c11598582'
     note: '【テレワーク中心】業務改善DXエンジニア'
     tags:
       - '経験者'
