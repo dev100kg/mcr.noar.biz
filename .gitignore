@@ -19,6 +19,7 @@ pnpm-debug.log*
 # editor / OS
 .DS_Store
 Thumbs.db
+.codex
 *.swp
 *.swo
 *.tmp
