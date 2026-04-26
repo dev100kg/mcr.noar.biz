@@ -16,11 +16,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "biome.enabled": false,
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "astro"
-  ],
+  "eslint.validate": ["javascript", "typescript", "astro"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },

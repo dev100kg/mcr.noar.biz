@@ -40,7 +40,7 @@
 
 ## 2. Issueからブランチを作る（作業者）
 
-- Issue画面右側の Development →  **Create a branch**（リンク）
+- Issue画面右側の Development → **Create a branch**（リンク）
 - 何も編集せず**create branch**（青いボタン）
 - Developmentに作成したbranchが表示されるので、押下して遷移
 

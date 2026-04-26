@@ -1,4 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const isHttpsUrl = (value: string): boolean => {
   try {
@@ -12,7 +14,7 @@ const isHttpsUrl = (value: string): boolean => {
 // LinkItemスキーマを別途定義して再利用可能にする
 export const linkItemSchema = z.object({
   label: z.string(),
-  url: z.string().url().refine(isHttpsUrl, {
+  url: z.url().refine(isHttpsUrl, {
     message: 'url は https のみ指定できます。',
   }),
   note: z.string().optional(),
@@ -21,7 +23,7 @@ export const linkItemSchema = z.object({
 });
 
 const links = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/links' }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
@@ -30,7 +32,7 @@ const links = defineCollection({
 });
 
 const settings = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/settings' }),
   schema: z.object({
     site: z.object({
       title: z.string(),

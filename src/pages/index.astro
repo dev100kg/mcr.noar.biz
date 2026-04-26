@@ -6,8 +6,8 @@ import PageBackground from '../components/PageBackground.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 const links = await getCollection('links');
-const jobboards = links.find((x) => x.slug === 'jobboards');
-const wantedly = links.find((x) => x.slug === 'wantedly');
+const jobboards = links.find((x) => x.id === 'jobboards');
+const wantedly = links.find((x) => x.id === 'wantedly');
 
 if (!jobboards) {
   throw new Error(
@@ -57,8 +57,8 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
     {
       gaId && (
         <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-          <script src={`${import.meta.env.BASE_URL}gtag-init.js`} data-gtag-id={gaId}></script>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+          <script is:inline src={`${import.meta.env.BASE_URL}gtag-init.js`} data-gtag-id={gaId} />
         </>
       )
     }
