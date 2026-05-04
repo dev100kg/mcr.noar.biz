@@ -17,7 +17,7 @@
     "format:md": "prettier \"src/content/**/*.md\" --write"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "tailwindcss": "^4.2.4"
